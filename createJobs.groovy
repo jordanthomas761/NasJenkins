@@ -1,3 +1,12 @@
+pipelineJob('pipelineJob') {
+    definition {
+        cps {
+            script(readFileFromWorkspace('pipelineJob.groovy'))
+            sandbox()
+        }
+    }
+}
+
 pipelineJob('book-store') {
     definition {
         cpsScm {
@@ -9,15 +18,6 @@ pipelineJob('book-store') {
                     branch 'master'
                 }
             }
-        }
-    }
-}
-
-pipelineJob('pipelineJob') {
-    definition {
-        cps {
-            script(readFileFromWorkspace('pipelineJob.groovy'))
-            sandbox()
         }
     }
 }
